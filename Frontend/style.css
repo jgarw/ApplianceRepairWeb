@@ -1,3 +1,18 @@
 
 /* CSS DOCUMENT */
 
+
+body{
+    margin:0px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(242, 242, 229);
+}
+
+.wrapper{
+    padding:20px;
+
+}
+
+.header{
+    text-align: center;
+}
