@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lookup Appointments</title>
+</head>
+
+<body>
+    <h1>Lookup Appointments</h1>
+
+    <!-- Form for looking up appointments -->
+    <form action="lookup.php" method="GET">
+        <fieldset>
+            <legend>Search Criteria</legend>
+
+            <!-- Input fields for search criteria -->
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" id="firstName">
+
+            <br><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" id="lastName">
+
+            <br><br>
+
+            <label for="appointmentDate">Appointment Date:</label>
+            <input type="date" name="appointmentDate" id="appointmentDate">
+
+            <br><br>
+            
+            <!-- Submit button to perform the search -->
+            <input type="submit" value="Search">
+        </fieldset>
+    </form>
+
+    <!-- Placeholder for displaying search results -->
+    <div id="searchResults">
+        <!-- Search results will be displayed here -->
+    </div>
+
+</body>
+
+</html>
