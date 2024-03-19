@@ -4,6 +4,7 @@
 <head>
     <title>Book New Appointment</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="validation.js"></script>
 </head>
 
 <div class ="wrapper">
@@ -12,107 +13,133 @@
         <div class="header">
             <h1>Book New Appointment</h1>
         </div>
+        <form action="registration.html" method="get" onsubmit="return validated();">
 
-        <!-- Fieldset to hold Customer Information table -->
-        <fieldset>
-            <legend>Customer Information:</legend>
-            <table>
-                <!-- table row to hold first name and last name labels -->
-                <tr>
-                    <td><label for="firstName">First Name:</label></td>
-                    <td><label for="lastName">Last Name:</label></td>
-                </tr>
+            <!-- Fieldset to hold Customer Information table -->
+            <fieldset>
+                <legend>Customer Information:</legend>
+                <table>
+                    <!-- table row to hold first name and last name labels -->
+                    <tr>
+                        <td><label for="firstName">First Name:</label></td>
+                        <td><label for="lastName">Last Name:</label></td>
+                    </tr>
 
-                <!-- table row to hold first name and last name text boxes -->
-                <tr>
-                    <td><input type="text" name="firstName" id="firstName"></td>
-                    <td><input type="text" name="lastName" id="lastName"></td>
-                </tr>
+                    <!-- table row to hold first name and last name text boxes -->
+                    <tr>
+                        <td><input type="text" name="firstName" id="firstName"></td>
+                        <td><input type="text" name="lastName" id="lastName"></td>
+                    </tr>
+                    
+                    <!--Add table row to hold firstname and lastname box error spans-->
+                    <tr>
+                        <td><span id="firstNameError"></span></td>
+                        <td><span id="lastNameError"></span></td>
+                    </tr>
 
-                <!-- table row to hold email label -->
-                <tr>
-                    <td><label for="email">Email:</label></td>
-                </tr>
+                    <!-- table row to hold email label -->
+                    <tr>
+                        <td><label for="email">Email:</label></td>
+                    </tr>
 
-                <!-- table row to hold email textbox -->
-                <tr>
-                    <td><input type="text" name="email" id="email"></td>
-                </tr>
+                    <!-- table row to hold email textbox -->
+                    <tr>
+                        <td><input type="text" name="email" id="email"></td>
+                    </tr>
 
-                <!-- table row to hold phone label -->
-                <tr>
-                    <td><label for="phone">Phone Number:</label></td>
-                </tr>
+                    <!--Add table row to hold email box error spans-->
+                    <tr>
+                        <td><span id="emailError"></span></td>
+                    </tr>
 
-                <!-- table row to hold phone textbox -->
-                <tr>
-                    <td><input type="text" name="phone" id="phone"></td>
-                </tr>
-            </table>
-        </fieldset>
+                    <!-- table row to hold phone label -->
+                    <tr>
+                        <td><label for="phone">Phone Number:</label></td>
+                    </tr>
 
-        <br>
+                    <!-- table row to hold phone textbox -->
+                    <tr>
+                        <td><input type="text" name="phone" id="phone"></td>
+                    </tr>
 
-        <!--Fieldset to hold Appliance information table-->
-        <fieldset>
-            <legend>Appliance Information:</legend>
-            <table>
-                <!-- table row to hold appliance type and appliance name labels -->
-                <tr>
-                    <td><label for="appType">Appliance Type:</label></td>
-                    <td><label for="appName">Appliance Name:</label></td>
-                </tr>
+                    <tr>
+                        <td><span id="phoneError"></span></td>
+                    </tr>
+                </table>
+            </fieldset>
 
-                <!-- table row to hold appliance type and appliance name text boxes -->
-                <tr>
-                    <td><input type="text" name="appType" id="appType"></td>
-                    <td><input type="text" name="appName" id="appName"></td>
-                </tr>
+            <br>
 
-                <!-- table row to hold problem description label -->
-                <tr>
-                    <td><label for="reason">Problem Description:</label></td>
-                </tr>
+            <!--Fieldset to hold Appliance information table-->
+            <fieldset>
+                <legend>Appliance Information:</legend>
+                <table>
+                    <!-- table row to hold appliance type and appliance name labels -->
+                    <tr>
+                        <td><label for="appType">Appliance Type:</label></td>
+                        <td><label for="appName">Appliance Name:</label></td>
+                    </tr>
 
-                <!-- table row to hold problem description textarea -->
-                <tr>
-                    <td><textarea name="reason" id="reason" rows="10" cols="20"></textarea></td>
-                </tr>
-            </table>
-        </fieldset>
+                    <!-- table row to hold appliance type and appliance name text boxes -->
+                    <tr>
+                        <td><input type="text" name="appType" id="appType"></td>
+                        <td><input type="text" name="appName" id="appName"></td>
+                    </tr>
 
-        <!--Fieldset to hold Appointment information table-->
-        <fieldset>
-            <legend>Appointment Information:</legend>
-            <table>
-                <!-- table row to hold appointment date label -->
-                <tr>
-                    <td><label for="appointmentDate">Appointment Date:</label></td>
-                </tr>
+                    <!--Add a table row to hold appliance textbox error message spans-->
+                    <tr>
+                        <td><span id="appTypeError"></span></td>
+                        <td><span id="appNameError"></span></td>
 
-                <!-- table row to hold appointment date textbox -->
-                <tr>
-                    <td><input type="date" name="appointmentDate" id="appointmentDate"></td>
-                </tr>
+                    </tr>
 
-                <!-- table row to hold appointment time label -->
-                <tr>
-                    <td><label for="AppointmentTime">Appointment Time:</label></td>
-                </tr>
+                    <!-- table row to hold problem description label -->
+                    <tr>
+                        <td><label for="reason">Problem Description:</label></td>
+                    </tr>
 
-                <!-- table row to hold appointment time textbox -->
-                <tr>
-                    <td><input type="time" name="AppointmentTime" id="AppointmentTime"></td>
-                </tr>
-            </table>
-        </fieldset>
+                    <!-- table row to hold problem description textarea -->
+                    <tr>
+                        <td><textarea name="reason" id="reason" rows="10" cols="20"></textarea></td>
+                    </tr>
+                </table>
+            </fieldset>
 
-        <!--Fieldset for submit and reset buttons-->
-        <fieldset>
-            <legend>Submit & Clear</legend>
-            <input type="submit" value="Submit">
-            <input type="reset" value="Clear">
-        </fieldset>
+            <!--Fieldset to hold Appointment information table-->
+            <fieldset>
+                <legend>Appointment Information:</legend>
+                <table>
+                    <!-- table row to hold appointment date label -->
+                    <tr>
+                        <td><label for="appointmentDate">Appointment Date:</label></td>
+                    </tr>
+
+                    <!-- table row to hold appointment date textbox -->
+                    <tr>
+                        <td><input type="date" name="appointmentDate" id="appointmentDate"></td>
+                        <td><span id="dateError"></span></td>
+                    </tr>
+
+                    <!-- table row to hold appointment time label -->
+                    <tr>
+                        <td><label for="appointmentTime">Appointment Time:</label></td>
+                    </tr>
+
+                    <!-- table row to hold appointment time textbox -->
+                    <tr>
+                        <td><input type="time" name="appointmentTime" id="appointmentTime"></td>
+                        <td><span id="timeError"></span></td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <!--Fieldset for submit and reset buttons-->
+            <fieldset>
+                <legend>Submit & Clear</legend>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Clear">
+            </fieldset>
+        </form>
     </body>
 </div>
 
