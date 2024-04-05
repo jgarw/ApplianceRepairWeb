@@ -6,6 +6,7 @@ body{
     margin:0px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(251, 246, 232);
+    padding: 50px;
 }
 
 /* Set styling for all wrapper elements */
@@ -49,6 +50,7 @@ span{
 #reviews{
     text-align: center;
     display:flex;
+    flex-wrap: nowrap;
     margin: 0 auto;
     justify-content: center;
     gap:20px;
@@ -79,3 +81,27 @@ button:hover{
 img{
     border-radius: 10px;
 }
+
+/* center align paragraph text cause left align text is ugly */
+p{
+text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    /* CSS rules for screens with a maximum width of 600 pixels */
+
+    body{
+        min-width: 400px;
+    }
+
+    .navbar{
+        display:flex;
+        flex-wrap: nowrap;
+    }
+
+    img{
+        max-width: 500px;
+    }
+
+  }
+  
