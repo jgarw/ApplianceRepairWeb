@@ -1,22 +1,81 @@
 
 /* CSS DOCUMENT */
 
-
+/* Set styling for all body elements */
 body{
     margin:0px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgb(242, 242, 229);
+    background-color: rgb(251, 246, 232);
 }
 
+/* Set styling for all wrapper elements */
 .wrapper{
     padding:20px;
 
 }
 
+/* Set styling for all header elements */
 .header{
     text-align: center;
 }
 
+/* Set styling for all span elements */
 span{
     color:red;
+}
+
+/* Set styling for all navbar elements */
+.navbar{
+    text-align: center;
+    background-color: rgb(61, 61, 61);
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;;
+}
+
+
+.navbar a{
+    color: rgb(255, 252, 252);
+    padding: 0px 10px;
+}
+
+.navbar a:hover{
+    color: rgb(255, 255, 255);
+    background-color: rgb(88, 87, 87);
+    padding: 10px;
+}
+
+/* Set styling for all review elements */
+#reviews{
+    text-align: center;
+    display:flex;
+    margin: 0 auto;
+    justify-content: center;
+    gap:20px;
+
+}
+
+/* Set styling for all button elements */
+button{
+    border: 0px;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(141, 141, 141);
+    border-radius: 5px;
+
+    width: 100%;
+}
+
+button:hover{
+    background-color: rgb(155, 153, 153);
+}
+
+#image-container{
+    display:flex;
+    justify-content: center;
+    gap:15px;
+}
+
+img{
+    border-radius: 10px;
 }

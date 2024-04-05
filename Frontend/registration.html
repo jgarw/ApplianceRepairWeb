@@ -9,11 +9,19 @@
 
 <div class ="wrapper">
     <body>
+
+        <!--A top navigation bar to jump to other pages-->
+        <nav class="navbar">
+            <a style="text-decoration:none" href="lookup.html">EMPLOYEE PORTAL</a>
+            <a style="text-decoration:none" href="index.html">HOME</a>
+            <a style="text-decoration:none" href="registration.html">CUSTOMER PORTAL</a>
+        </nav>
+
         <!--Create header class-->
         <div class="header">
             <h1>Book New Appointment</h1>
         </div>
-        <form action="process.php" method="post" onsubmit="return validated();">
+        <form class="form" action="createAppointment.php" method="post" onsubmit="return validated();">
 
             <!-- Fieldset to hold Customer Information table -->
             <fieldset>

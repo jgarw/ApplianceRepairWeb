@@ -72,6 +72,7 @@ function validated() {
         errors = true;
     }
 
+
     // Stop the form from submitting if there are errors.
     return !errors;
 }

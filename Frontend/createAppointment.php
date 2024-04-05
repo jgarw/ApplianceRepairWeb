@@ -1,4 +1,5 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
     $email = $_POST['email'];
@@ -9,7 +10,7 @@
     $appointmentDate = $_POST['appointmentDate'];
     $appointmentTime = $_POST['appointmentTime'];
     $appointmentDateTime = $appointmentDate . ' ' . $appointmentTime. ':00';
-
+       
     $servername = "localhost";
     $username = "root";
     $password = "password";
@@ -64,4 +65,5 @@
 
     // Closes the connection after the insert statements are completed.
     mysqli_close($conn);
+}
 ?>
