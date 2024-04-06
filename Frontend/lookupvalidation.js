@@ -6,17 +6,24 @@ function validated() {
     var errors = false;
 
 // Check if the firstName textbox is over 30 characters.
-
+if (firstName.length > 30) {
+    errorMessage("firstNameError", "x First name must be 30 characters or fewer.");
+    errors = true;
+}
 
 // Check if the lastName textbox is over 30 characters
+if (lastName.length > 30) {
+    errorMessage("lastNameError", "x Last name must be 30 characters or fewer.");
+    errors = true;
+}
 
 // Check the firstName, lastName and date fields are all empty.
-if (firstName.trim() =='', lastName.trim() =='', date.trim() == '') {
+if (firstName.trim() == '' && lastName.trim() == '' && date.trim() == '') {
     errorMessage("noEntryError", "x Please submit at least a first name, last name or date.");
     errors = true;
 }
 
-    // Stop the form from submitting if there are errors.
+// Stop the form from submitting if there are errors.
 return !errors;
 }
 
