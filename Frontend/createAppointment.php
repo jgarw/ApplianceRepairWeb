@@ -45,6 +45,14 @@
         $generatedApplianceID = mysqli_insert_id($conn);
 
 
+        // Creating the insert statement for the CUST_APPLIANCES table
+        $cust_appliancesInsert = "INSERT INTO CUST_APPLIANCES (customerID, applianceID)
+        VALUES ($generatedCustomerID, $generatedApplianceID)";
+
+        // Completes the CUST_APPLIANCES insert
+        mysqli_query($conn, $cust_appliancesInsert);
+
+
         // Selects all technicianID values so that the program can randomly choose one
         $technicianQuery = "SELECT technicianID FROM TECHNICIANS";
         $technicianResult = mysqli_query($conn, $technicianQuery);
