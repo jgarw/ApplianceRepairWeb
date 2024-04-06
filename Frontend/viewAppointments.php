@@ -1,9 +1,11 @@
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        // Defines PHP variables equal to the value that the user inserted in the lookup.html fields.
         $firstName = $_GET['firstName'];
         $lastName = $_GET['lastName'];
         $date = $_GET['appointmentDate'];
 
+        // Defines variables specifiying the details for the database we are connecting to.
         $servername = "localhost";
         $username = "root";
         $password = "password";
@@ -16,15 +18,13 @@
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        // Filters out the empty values, might remove this.
-        // $userInputs = array_filter($userInputs, function($value) { return !empty($value); });
-
         // Strings for each column in the first part of the WHERE clause that will only be used if there was an entry made into that particular column
         $firstNameString = "c.firstName LIKE '%$firstName%'";
         $lastNameString = "c.lastName LIKE '%$lastName%'";
         $dateString = "a.appointmentDateTime LIKE '$date%'"; // The date must match exactly, but the LIKE operator will ignore the time.
         $sqlWhereString = "";
 
+        // Checks which fields the user entered information into, and assigns a specific string to be used in the WHERE clause to match.
         if (empty($firstName) and empty($lastName)) {
             $sqlWhereString = $dateString;
         }
@@ -48,7 +48,7 @@
         }
         
 
-        // Creates the variable "$sql" with a value equal to a query to return all appointments that match the conditional WHERE clause.
+        // Creates the variable "$sql" with a value equal to a query to return all appointment details that match what the user searched for.
         $sql = "
         SELECT c.firstName AS customerFirstName, c.lastName AS customerLastName, c.email, c.phone, 
         ap.applianceName, ap.applianceType, 
@@ -60,12 +60,12 @@
         JOIN CUST_APPLIANCES cap ON cap.customerID = a.customerID
         JOIN APPLIANCES ap ON ap.applianceID = cap.applianceID
         WHERE $sqlWhereString;";
+
         // Stores the result of the customer appointment SELECT statement into the variable "$result"
         $result = mysqli_query($conn, $sql);
 
         // Initializes an empty array: Each index stores one row of the retrieved SQL SELECT statement
         $appointments = [];
-
 
         // Verifies that there are more than 0 rows
         if ($result->num_rows > 0) {
@@ -84,6 +84,7 @@
                 $email = htmlspecialchars($appointment["email"]);
                 $phone = htmlspecialchars($appointment["phone"]);
                 $applianceName = htmlspecialchars($appointment["applianceName"]);
+                $applianceType = htmlspecialchars($appointment["applianceType"]);
                 $technicianFirstName = htmlspecialchars($appointment["technicianFirstName"]);
                 $technicianLastName = htmlspecialchars($appointment["technicianLastName"]);
                 $appointmentDateTime = htmlspecialchars($appointment["appointmentDateTime"]);
@@ -98,6 +99,7 @@
                         <p><strong>Email:</strong> $email</p>
                         <p><strong>Phone:</strong> $phone</p>
                         <p><strong>Appliance:</strong> $applianceName</p>
+                        <p><strong>Appliance Type:</strong> $applianceType</p>
                         <p><strong>Technician:</strong> $technicianFirstName $technicianLastName</p>
                         <p><strong>Date & Time:</strong> $appointmentDateTime</p>
                         <p><strong>Reason:</strong> $reason</p>
@@ -108,12 +110,14 @@
             }
         }
 
+        // Loops through the appointments[] array and displays each one to the user.
         function displayAllAppointments() {
             foreach ($GLOBALS['appointments'] as $appointment) {
                 displayAppointment($appointment);
             }
         }
         
+        // Closes the connection to the database
         mysqli_close($conn);
     }
 ?>        
@@ -139,6 +143,8 @@
                 <p> Total number of appointments found: <?php echo htmlspecialchars(count($appointments)); ?> </p>
         </div>
 
-        <?php displayAllAppointments(); ?>
+        <section class="appointmentsContainer"> 
+            <?php displayAllAppointments(); ?>
+        </section>
     </body>
 </html>
