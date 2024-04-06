@@ -87,6 +87,15 @@ p{
 text-align: center;
 }
 
+/* Stylings related to the createAppointments.php file */
+.appointmentConfirmation {
+    /* Limits the size of the div, mostly because "reason" tends to be long */
+    max-width: 350px;
+    /* Centers the div */
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Stylings related to the viewAppointments.php file */
 .appointmentsContainer {
     display: grid;
@@ -103,9 +112,13 @@ text-align: center;
     width: 600px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     .appointmentsContainer {
         grid-template-columns: 1fr 1fr;
+        margin-left: 0px;
+    }
+    .appointment {
+        width: 400px;
     }
 }
 
