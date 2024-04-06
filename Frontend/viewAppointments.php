@@ -103,7 +103,7 @@
                         <p><strong>Technician:</strong> $technicianFirstName $technicianLastName</p>
                         <p><strong>Date & Time:</strong> $appointmentDateTime</p>
                         <p><strong>Reason:</strong> $reason</p>
-                        <p><strong>Quote:</strong> $quote</p>
+                        <p><strong>Quote:</strong> $$quote</p>
                     </div>
                     <br>
                 HTML;
