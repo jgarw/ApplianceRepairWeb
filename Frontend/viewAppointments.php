@@ -2,7 +2,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $firstName = $_GET['firstName'];
         $lastName = $_GET['lastName'];
-        $date = $_GET['date'];
+        $date = $_GET['appointmentDate'];
 
         $servername = "localhost";
         $username = "root";
@@ -20,9 +20,9 @@
         // $userInputs = array_filter($userInputs, function($value) { return !empty($value); });
 
         // Strings for each column in the first part of the WHERE clause that will only be used if there was an entry made into that particular column
-        $firstNameString = "firstName LIKE '%$firstName%'";
-        $lastNameString = "lastName LIKE '%$lastName%'";
-        $dateString = "appointmentDateTime LIKE '$date%'"; // The date must match exactly, but the LIKE operator will ignore the time.
+        $firstNameString = "c.firstName LIKE '%$firstName%'";
+        $lastNameString = "c.lastName LIKE '%$lastName%'";
+        $dateString = "a.appointmentDateTime LIKE '$date%'"; // The date must match exactly, but the LIKE operator will ignore the time.
         $sqlWhereString = "";
 
         if (empty($firstName) and empty($lastName)) {
@@ -50,19 +50,18 @@
 
         // Creates the variable "$sql" with a value equal to a query to return all appointments that match the conditional WHERE clause.
         $sql = "
-        SELECT c.firstName AS customerFirstName, c.customerLastName, c.email, c.phone, 
+        SELECT c.firstName AS customerFirstName, c.lastName AS customerLastName, c.email, c.phone, 
         ap.applianceName, ap.applianceType, 
         t.firstName AS technicianFirstName, t.lastName AS technicianLastName, 
         a.appointmentDateTime, a.reason, a.quote
         FROM CUSTOMERS c
         JOIN APPOINTMENTS a ON a.customerID = c.customerID
         JOIN TECHNICIANS t ON t.technicianID = a.technicianID
-        JOIN CUSTOMER_APPLIANCES cap ON cap.customerID = a.customerID
+        JOIN CUST_APPLIANCES cap ON cap.customerID = a.customerID
         JOIN APPLIANCES ap ON ap.applianceID = cap.applianceID
-        WHERE $sqlWhereString;
-        "
+        WHERE $sqlWhereString;";
         // Stores the result of the customer appointment SELECT statement into the variable "$result"
-        $result = $mysqli->query($sql);
+        $result = mysqli_query($conn, $sql);
 
         // Initializes an empty array: Each index stores one row of the retrieved SQL SELECT statement
         $appointments = [];
@@ -78,7 +77,7 @@
 
         // Receives a row from the SELECT statement and enters the result of each column into a variable. After this it echoes out an appointment with the correct info.
         function displayAppointment($appointment) {
-            if ($result->num_rows > 0) {
+            if ($GLOBALS['result']->num_rows > 0) {
                 // Extract each column's value into a variable
                 $customerFirstName = htmlspecialchars($appointment["customerFirstName"]);
                 $customerLastName = htmlspecialchars($appointment["customerLastName"]);
@@ -92,7 +91,7 @@
                 $quote = htmlspecialchars($appointment["quote"]);
                 
                 // Use the variables to print out an HTML section for the appointment
-                <<<HTML
+                echo <<<HTML
                     <div class="appointment">
                         <h2>Appointment Details</h2>
                         <p><strong>Customer:</strong> $customerFirstName $customerLastName</p>
@@ -110,12 +109,12 @@
         }
 
         function displayAllAppointments() {
-            foreach ($appointments as $appointment) {
+            foreach ($GLOBALS['appointments'] as $appointment) {
                 displayAppointment($appointment);
             }
         }
         
-        $mysqli->close();
+        mysqli_close($conn);
     }
 ?>        
 <!-- Parts of the HTML document before the appointments are displayed -->
@@ -127,19 +126,19 @@
         <title>Appointments Page</title>
         <link rel="stylesheet" href="style.css">
     </head>
-<body>
-    <!--A top navigation bar to jump to other pages-->
-    <nav class="navbar">
-        <a style="text-decoration:none" href="lookup.html">EMPLOYEE PORTAL</a>
-        <a style="text-decoration:none" href="index.html">HOME</a>
-        <a style="text-decoration:none" href="registration.html">CUSTOMER PORTAL</a>
-    </nav>
+    <body>
+        <!--A top navigation bar to jump to other pages-->
+        <nav class="navbar">
+            <a style="text-decoration:none" href="lookup.html">EMPLOYEE PORTAL</a>
+            <a style="text-decoration:none" href="index.html">HOME</a>
+            <a style="text-decoration:none" href="registration.html">CUSTOMER PORTAL</a>
+        </nav>
 
-    <div class="header">
-            <h1>Appointments</h1>
-            <p> Total number of appointments found: <?php echo htmlspecialchars(count($appointments)); ?> </p>
-    </div>
+        <div class="header">
+                <h1>Appointments</h1>
+                <p> Total number of appointments found: <?php echo htmlspecialchars(count($appointments)); ?> </p>
+        </div>
 
-    <?php displayAllAppointments(); ?>
-</body>
+        <?php displayAllAppointments(); ?>
+    </body>
 </html>
