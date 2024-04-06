@@ -10,6 +10,9 @@
         $appointmentDate = $_POST['appointmentDate'];
         $appointmentTime = $_POST['appointmentTime'];
         $appointmentDateTime = $appointmentDate . ' ' . $appointmentTime. ':00';
+        // Minimum and maximum values for random quote generation
+        $min = 100.00;
+        $max = 300.00;
         
         $servername = "localhost";
         $username = "root";
@@ -95,10 +98,17 @@
         else {
             $technicianLastName = "Unknown";
         }
+        
+        
+        // Generates a random quote with dollars and cents.
+        function generateRandomQuote ($min, $max) {
+            $dollars = rand(100, 300);
+            $cents = (rand(0, 100)/100);
+            return $dollars + $cents;
+        }
 
-
-        // Generates a random quote for the appliance repair cost
-        $randomQuote = rand(100, 300);
+        // Generates a random quote for the appliance repair cost with the min and max specified at the top of the page.
+        $randomQuote = generateRandomquote($min, $max);
     
         
         // Creating the insert statement for the APPOINTMENTS table
@@ -141,5 +151,5 @@
             <p><strong>Technician:</strong> <?php echo $technicianFirstName . " " . $technicianLastName; ?></p>
             <p><strong>Date & Time:</strong> <?php echo $appointmentDateTime; ?></p>
             <p><strong>Reason:</strong> <?php echo $reason; ?></p>
-            <p><strong>Quote:</strong> <?php echo $randomQuote; ?></p>
+            <p><strong>Quote:</strong> <?php echo '$' . $randomQuote; ?></p>
         </div>
