@@ -87,6 +87,28 @@ p{
 text-align: center;
 }
 
+/* Stylings related to the viewAppointments.php file */
+.appointmentsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+    margin-left: 35px;
+    margin-right: auto;
+}
+
+.appointment {
+    border: 3px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    width: 600px;
+}
+
+@media screen and (max-width: 600px) {
+    .appointmentsContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 @media screen and (max-width: 600px) {
     /* CSS rules for screens with a maximum width of 600 pixels */
 
