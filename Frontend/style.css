@@ -9,6 +9,47 @@ body{
     padding: 50px;
 }
 
+/* styling to hide the default HTML toggle button beside icon */
+#dark-toggle{
+    width:0;
+    height:0;
+    border:0;
+    opacity:0;
+}
+
+/* change the cursour to a pointer when hovering over dark mode toggle button */
+#toggle-image img{
+    cursor: pointer;
+    padding:5px;
+}
+
+/* change the icon from black to white when dark mode is enabled to help icon stand out */
+.dark-mode #toggle-image img{
+    filter: invert(1);
+}
+
+/* change the pages background colour and font colour when darkmnode is enabled */
+.dark-mode{
+    background-color: rgb(48, 48, 48);
+    color: rgb(220, 220, 220);
+}
+
+/* change background color on navbar on page when darkmode is enabled */
+.dark-mode .navbar{
+    background-color: rgb(220, 220, 220);
+}
+
+/* change font color on navbar on page when darkmode is enabled */
+.dark-mode .navbar a{
+    color:rgb(42, 42, 42);
+}
+
+/* change background color and font color of buttons on page when darkmode is enabled */
+.dark-mode button{
+    background-color:  rgb(220, 220, 220);
+    color: rgb(61, 61, 61)
+}
+
 /* Set styling for all wrapper elements */
 .wrapper{
     padding:20px;
@@ -54,6 +95,7 @@ span{
     margin: 0 auto;
     justify-content: center;
     gap:20px;
+    padding:20px;
 
 }
 
@@ -62,17 +104,18 @@ button{
     border: 0px;
     color: white;
     cursor: pointer;
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(61, 61, 61);
     border-radius: 5px;
 
     width: 100%;
 }
 
 button:hover{
-    background-color: rgb(155, 153, 153);
+    background-color: rgb(88, 88, 88);
 }
 
 #image-container{
+    padding:30px;
     display:flex;
     justify-content: center;
     gap:15px;

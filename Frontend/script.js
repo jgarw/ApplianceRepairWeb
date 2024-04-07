@@ -15,3 +15,19 @@ function toggleReviews(){
     }
 
 }
+
+/* create a function to enable/disable dark-mode on the site */
+function darkMode(){
+
+            const body = document.body;
+            document.body.classList.toggle('dark-mode');
+
+            const toggleImage = document.getElementById('toggle-image').getElementsByTagName('img')[0];
+
+            if(body.classList.contains('dark-mode')){
+                toggleImage.src='images/sun.png';
+            } else{
+                toggleImage.src='images/moon.png';
+            }
+
+}
