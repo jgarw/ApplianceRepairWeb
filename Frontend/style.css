@@ -75,12 +75,13 @@ span{
     border-radius: 10px;;
 }
 
-
+/* the navbar font to white and add padding */
 .navbar a{
     color: rgb(255, 252, 252);
     padding: 0px 10px;
 }
 
+/* set the colour of the navbar font when hovering */
 .navbar a:hover{
     color: rgb(255, 255, 255);
     background-color: rgb(88, 87, 87);
@@ -106,14 +107,15 @@ button{
     cursor: pointer;
     background-color: rgb(61, 61, 61);
     border-radius: 5px;
-
     width: 100%;
 }
 
+/* set a darker colour when hovering over buttons */
 button:hover{
     background-color: rgb(88, 88, 88);
 }
 
+/* create flex-box container for images and center the items */
 #image-container{
     padding:30px;
     display:flex;
@@ -121,6 +123,7 @@ button:hover{
     gap:15px;
 }
 
+/* add rounded corners to all images */
 img{
     border-radius: 10px;
 }

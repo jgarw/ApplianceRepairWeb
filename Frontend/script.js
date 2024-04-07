@@ -19,15 +19,17 @@ function toggleReviews(){
 /* create a function to enable/disable dark-mode on the site */
 function darkMode(){
 
-            const body = document.body;
-            document.body.classList.toggle('dark-mode');
+    const body = document.body;
+    document.body.classList.toggle('dark-mode');
 
-            const toggleImage = document.getElementById('toggle-image').getElementsByTagName('img')[0];
+    const toggleImage = document.getElementById('toggle-image').getElementsByTagName('img')[0];
 
-            if(body.classList.contains('dark-mode')){
-                toggleImage.src='images/sun.png';
-            } else{
-                toggleImage.src='images/moon.png';
-            }
+    /* if dark mode is enabed, set the icon to a sun */
+    if(body.classList.contains('dark-mode')){
+        toggleImage.src='images/sun.png';
+    /* if dark mode is not enabled, set icon to a moon */
+    } else{
+        toggleImage.src='images/moon.png';
+    }
 
 }

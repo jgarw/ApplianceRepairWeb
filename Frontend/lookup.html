@@ -27,7 +27,7 @@
             <fieldset>
                 <legend>Search Criteria</legend>
 
-                <!-- Input fields for search criteria -->
+                <!-- Input fields for first name search criteria -->
                 <tr>
                     <td><label for="firstName">First Name:</label></td>
                     <td><input type="text" name="firstName" id="firstName"></td>
@@ -36,6 +36,7 @@
 
                 <br><br>
                 
+                <!-- Input fields for last name search criteria -->
                 <tr>
                     <td><label for="lastName">Last Name:</label></td>
                     <td><input type="text" name="lastName" id="lastName"></td>
@@ -44,11 +45,13 @@
 
                 <br><br><br>
 
+                <!-- Input fields for appointment date time search criteria -->
                 <label for="appointmentDate">Appointment Date:</label>
                 <input type="date" name="appointmentDate" id="appointmentDate">
 
                 <br>
 
+                <!-- field to hold an error if no input entered -->
                 <tr>
                     <td><span id="noEntryError"></span></td>
                 </tr>
