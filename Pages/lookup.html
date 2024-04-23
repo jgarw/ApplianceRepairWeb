@@ -1,0 +1,82 @@
+<!--
+	Student Name: Joseph Garwood
+	Student Number: 041085246
+	Date: March 14 2024
+	Prof: Alem Legesse
+	Course: CST 8285
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lookup Appointments</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script type="text/javascript" src="../Scripts/lookupvalidation.js"></script>
+</head>
+
+<div class="wrapper">
+    <body>
+        <!--A top navigation bar to jump to other pages-->
+        <nav class="navbar">
+            <a style="text-decoration:none" href="lookup.html">EMPLOYEE PORTAL</a>
+            <a style="text-decoration:none" href="index.html">HOME</a>
+            <a style="text-decoration:none" href="registration.html">CUSTOMER PORTAL</a>
+        </nav>
+        
+        <div class="header">
+            <h1>Lookup Appointments</h1>
+        </div>
+
+        <!-- Form for looking up appointments -->
+        <form action="../Server/viewAppointments.php" method="get" onsubmit="return validated();">
+            <fieldset>
+                <legend>Search Criteria</legend>
+
+                <!-- Input fields for search criteria -->
+                <tr>
+                    <td><label for="firstName">First Name:</label></td>
+                    <td><input type="text" name="firstName" id="firstName"></td>
+                    <td><span id="firstNameError"></span></td>
+                </tr>
+
+                <br><br>
+                                
+                <!-- Input fields for last name search criteria -->
+                <tr>
+                    <td><label for="lastName">Last Name:</label></td>
+                    <td><input type="text" name="lastName" id="lastName"></td>
+                    <td><span id="lastNameError"></span></td>
+                </tr>
+
+                <br><br><br>
+
+                <!-- Input fields for appointment date time search criteria -->
+                <label for="appointmentDate">Appointment Date:</label>
+                <input type="date" name="appointmentDate" id="appointmentDate">
+
+                <br>
+                
+                <!-- field to hold an error if no input entered -->
+                <tr>
+                    <td><span id="noEntryError"></span></td>
+                </tr>
+
+                <br>
+                
+                <!-- Submit button to perform the search -->
+                <input type="submit" value="Search">
+            </fieldset>
+        </form>
+
+        <!-- Placeholder for displaying search results -->
+        <div id="searchResults">
+            <!-- Search results will be displayed here -->
+        </div>
+
+    </body>
+</div>
+
+</html>

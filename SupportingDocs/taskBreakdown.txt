@@ -1,0 +1,13 @@
+Joe:
+-Made all HTML pages including index.html, registration.html, and lookup.html
+-Made reviews and images on index.html
+-Made the majority of CSS stylings and index media query
+-Made validation.js for registration validation
+-Made script.js to create dark and light mode
+-Created database
+
+Aaron:
+-Made all PHP code
+-Made lookupvalidation.js to add validation to the lookup.html file
+-Made all HTML and CSS code related to the pages that the PHP files send to
+-Wireframes, database description, task breakdown
