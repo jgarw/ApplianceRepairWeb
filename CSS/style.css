@@ -1,3 +1,10 @@
+/*
+	Student Name: Aaron Renshaw & Joseph Garwood
+	Student Number: 041122937 & 041085246
+	Date: April 2nd, 2024
+	Prof: Alem Legesse
+	Course: CST 8285
+*/
 
 /* CSS DOCUMENT */
 
@@ -75,13 +82,13 @@ span{
     border-radius: 10px;;
 }
 
-/* the navbar font to white and add padding */
+/* Set the navbar font to white and add padding */
 .navbar a{
     color: rgb(255, 252, 252);
     padding: 0px 10px;
 }
 
-/* set the colour of the navbar font when hovering */
+/* Set the colour of the navbar font when hovering */
 .navbar a:hover{
     color: rgb(255, 255, 255);
     background-color: rgb(88, 87, 87);
@@ -107,6 +114,7 @@ button{
     cursor: pointer;
     background-color: rgb(61, 61, 61);
     border-radius: 5px;
+
     width: 100%;
 }
 
@@ -151,6 +159,7 @@ text-align: center;
     margin-right: auto;
 }
 
+/* Sets a border, fixed width, margin and padding for the divs containing each appointment*/
 .appointment {
     border: 3px solid #ccc;
     margin: 10px;
@@ -158,6 +167,8 @@ text-align: center;
     width: 600px;
 }
 
+/* Changes the appointments grid to one column, reduces appointment width and 
+lowers the margin from the left side of the screen*/
 @media screen and (max-width: 750px) {
     .appointmentsContainer {
         grid-template-columns: 1fr 1fr;

@@ -1,0 +1,11 @@
+Our database stores information about customers, appliances, technicians, and appointments that customers make.
+Each row of each table has a unique ID to keep track of the customers.
+On the registration page, customers insert information into the database by completing forms. At the moment, the
+quote (appointment cost) is randomly generated, as well as the technician assigned for the appointment. 
+
+On the lookup page, employees can retrieve information from the database based on what they enter into the fields.
+They can search for the first and last name of the customer that applied for the appointment, as well as the
+appointment date.
+
+htmlspecialchars is used in the viewAppointments.php file to encode characters, which prevents script attacks.
+In both PHP files, error handling is used to log potential errors with the insert and select statements.

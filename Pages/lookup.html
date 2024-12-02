@@ -1,3 +1,11 @@
+<!--
+	Student Name: Joseph Garwood
+	Student Number: 041085246
+	Date: March 14 2024
+	Prof: Alem Legesse
+	Course: CST 8285
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +13,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lookup Appointments</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="lookupvalidation.js"></script>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script type="text/javascript" src="../Scripts/lookupvalidation.js"></script>
 </head>
 
 <div class="wrapper">
@@ -23,11 +31,11 @@
         </div>
 
         <!-- Form for looking up appointments -->
-        <form action="viewAppointments.php" method="get" onsubmit="return validated();">
+        <form action="../Server/viewAppointments.php" method="get" onsubmit="return validated();">
             <fieldset>
                 <legend>Search Criteria</legend>
 
-                <!-- Input fields for first name search criteria -->
+                <!-- Input fields for search criteria -->
                 <tr>
                     <td><label for="firstName">First Name:</label></td>
                     <td><input type="text" name="firstName" id="firstName"></td>
@@ -35,7 +43,7 @@
                 </tr>
 
                 <br><br>
-                
+                                
                 <!-- Input fields for last name search criteria -->
                 <tr>
                     <td><label for="lastName">Last Name:</label></td>
@@ -50,7 +58,7 @@
                 <input type="date" name="appointmentDate" id="appointmentDate">
 
                 <br>
-
+                
                 <!-- field to hold an error if no input entered -->
                 <tr>
                     <td><span id="noEntryError"></span></td>

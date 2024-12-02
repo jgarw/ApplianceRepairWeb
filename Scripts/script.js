@@ -1,3 +1,11 @@
+/*
+	Student Name: Joseph Garwood
+	Student Number: 041085246
+	Date: March 14 2024
+	Prof: Alem Legesse
+	Course: CST 8285
+*/
+
 /* Ensure reviews are hidden on page load */
 document.addEventListener("DOMContentLoaded", function() {
     const reviews = document.getElementById('reviews');
@@ -23,13 +31,12 @@ function darkMode(){
     document.body.classList.toggle('dark-mode');
 
     const toggleImage = document.getElementById('toggle-image').getElementsByTagName('img')[0];
-
+    
     /* if dark mode is enabed, set the icon to a sun */
     if(body.classList.contains('dark-mode')){
-        toggleImage.src='images/sun.png';
+        toggleImage.src='../images/sun.png';
     /* if dark mode is not enabled, set icon to a moon */
     } else{
-        toggleImage.src='images/moon.png';
+        toggleImage.src='../images/moon.png';
     }
-
 }

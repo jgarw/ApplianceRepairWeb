@@ -1,10 +1,18 @@
+<!--
+	Student Name: Joseph Garwood
+	Student Number: 041085246
+	Date: March 14 2024
+	Prof: Alem Legesse
+	Course: CST 8285
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Book New Appointment</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="validation.js"></script>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script type="text/javascript" src="../Scripts/validation.js"></script>
 </head>
 
 <div class ="wrapper">
@@ -21,7 +29,7 @@
         <div class="header">
             <h1>Book New Appointment</h1>
         </div>
-        <form class="form" action="createAppointment.php" method="post" onsubmit="return validated();">
+        <form class="form" action="../Server/createAppointment.php" method="post" onsubmit="return validated();">
 
             <!-- Fieldset to hold Customer Information table -->
             <fieldset>
@@ -69,7 +77,7 @@
                     <tr>
                         <td><input type="text" name="phone" id="phone"></td>
                     </tr>
-
+                    
                     <!--Add table row to hold phone box error spans-->
                     <tr>
                         <td><span id="phoneError"></span></td>
